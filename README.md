@@ -27,7 +27,7 @@ Here are some ideas to get you started:
   6. React-Router
 
 ### How to reach me :-
-  Linkedin: https://www.linkedin.com/in/prasun-acharjee-3193b497/
+  Linkedin: https://www.linkedin.com/in/prasun-acharjee-3193b497/ \n
   Facebook: https://www.facebook.com/prasun.acharjee.35/
   
   
