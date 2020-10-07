@@ -23,4 +23,11 @@ Here are some ideas to get you started:
   2. React-Native
   3. Redux (thunk,saga)
   4. Firebase
-  5. React-Router
+  5. Jest (enzyme)
+  6. React-Router
+
+### How to reach me :-
+  Linkedin: https://www.linkedin.com/in/prasun-acharjee-3193b497/
+  Facebook: https://www.facebook.com/prasun.acharjee.35/
+  
+  
