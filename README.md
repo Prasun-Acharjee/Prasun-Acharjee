@@ -14,3 +14,13 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+### Role :-
+  Front-end developer
+
+### Have worked on :- 
+  1. React JS
+  2. React-Native
+  3. Redux (thunk,saga)
+  4. Firebase
+  5. React-Router
