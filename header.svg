@@ -1,5 +1,22 @@
 <svg viewBox="0 0 800 400" width="800" height="400" fill="none" xmlns="http://www.w3.org/2000/svg">
 	<defs>
+		<style>
+			/* Only opacity + tiny translate are animated: the blurred glows are
+			   rendered once and re-composited, so motion stays smooth. */
+			@keyframes glowA { from { opacity: .45; transform: translate(0px, 0px); }
+			                     to { opacity: .85; transform: translate(14px, 10px); } }
+			@keyframes glowB { from { opacity: .80; transform: translate(0px, 0px); }
+			                     to { opacity: .45; transform: translate(-16px, -8px); } }
+			@keyframes glowC { from { opacity: .40; transform: translate(0px, 0px); }
+			                     to { opacity: .75; transform: translate(-12px, 12px); } }
+			@keyframes halo  { from { opacity: .40; } to { opacity: .75; } }
+
+			.g1   { animation: glowA 14s ease-in-out infinite alternate; }
+			.g2   { animation: glowB 18s ease-in-out infinite alternate; }
+			.g3   { animation: glowC 11s ease-in-out infinite alternate; }
+			.halo { animation: halo  9s ease-in-out infinite alternate; }
+		</style>
+
 		<linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
 			<stop offset="0" stop-color="#171430"/>
 			<stop offset="0.55" stop-color="#0c0a1e"/>
@@ -21,11 +38,18 @@
 			<stop offset="0" stop-color="#8b5cf6" stop-opacity="0.45"/>
 			<stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
 		</radialGradient>
-		<linearGradient id="title" x1="120" y1="0" x2="680" y2="0" gradientUnits="userSpaceOnUse">
+
+		<!-- sheen that travels across the title; reflect makes the loop seamless -->
+		<linearGradient id="title" x1="0" y1="0" x2="420" y2="0"
+			gradientUnits="userSpaceOnUse" spreadMethod="reflect">
 			<stop offset="0" stop-color="#ffffff"/>
-			<stop offset="0.5" stop-color="#c7d0ff"/>
-			<stop offset="1" stop-color="#9ff0ff"/>
+			<stop offset="0.45" stop-color="#c7d0ff"/>
+			<stop offset="0.7" stop-color="#9ff0ff"/>
+			<stop offset="1" stop-color="#ffffff"/>
+			<animateTransform attributeName="gradientTransform" type="translate"
+				from="-420 0" to="0 0" dur="7s" repeatCount="indefinite"/>
 		</linearGradient>
+
 		<linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
 			<stop offset="0" stop-color="#67e8f9" stop-opacity="0"/>
 			<stop offset="1" stop-color="#67e8f9" stop-opacity="0.9"/>
@@ -43,12 +67,12 @@
 	<!-- backdrop -->
 	<rect x="0" y="0" width="800" height="400" rx="18" fill="url(#bg)"/>
 
-	<!-- soft static glows -->
+	<!-- drifting aurora glows -->
 	<g filter="url(#soft)">
-		<ellipse cx="70" cy="60" rx="180" ry="150" fill="url(#pink)"/>
-		<ellipse cx="720" cy="360" rx="220" ry="180" fill="url(#blue)"/>
-		<ellipse cx="640" cy="70" rx="150" ry="120" fill="url(#cyan)"/>
-		<ellipse cx="400" cy="200" rx="200" ry="120" fill="url(#violet)"/>
+		<ellipse class="g1" cx="70" cy="60" rx="180" ry="150" fill="url(#pink)"/>
+		<ellipse class="g2" cx="720" cy="360" rx="220" ry="180" fill="url(#blue)"/>
+		<ellipse class="g3" cx="640" cy="70" rx="150" ry="120" fill="url(#cyan)"/>
+		<ellipse class="halo" cx="400" cy="200" rx="200" ry="120" fill="url(#violet)"/>
 	</g>
 
 	<!-- glass panel -->
