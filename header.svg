@@ -1,104 +1,75 @@
-<svg fill="none" viewBox="0 0 800 400" width="800" height="400" xmlns="http://www.w3.org/2000/svg">
-	<foreignObject width="100%" height="100%">
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<style>
-				* { margin: 0; padding: 0; box-sizing: border-box; }
+<svg viewBox="0 0 800 400" width="800" height="400" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#171430"/>
+			<stop offset="0.55" stop-color="#0c0a1e"/>
+			<stop offset="1" stop-color="#060510"/>
+		</linearGradient>
+		<radialGradient id="pink" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#ff6b9d" stop-opacity="0.55"/>
+			<stop offset="1" stop-color="#ff6b9d" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="blue" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#6a82fb" stop-opacity="0.6"/>
+			<stop offset="1" stop-color="#6a82fb" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="cyan" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#22d3ee" stop-opacity="0.4"/>
+			<stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="violet" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#8b5cf6" stop-opacity="0.45"/>
+			<stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="title" x1="120" y1="0" x2="680" y2="0" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="0.5" stop-color="#c7d0ff"/>
+			<stop offset="1" stop-color="#9ff0ff"/>
+		</linearGradient>
+		<linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#67e8f9" stop-opacity="0"/>
+			<stop offset="1" stop-color="#67e8f9" stop-opacity="0.9"/>
+		</linearGradient>
+		<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#ff6b9d"/>
+			<stop offset="0.5" stop-color="#8b5cf6"/>
+			<stop offset="1" stop-color="#22d3ee"/>
+		</linearGradient>
+		<filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+			<feGaussianBlur stdDeviation="34"/>
+		</filter>
+	</defs>
 
-				/* The only motion: a slow, low-amplitude glow breathe. Barely there. */
-				@keyframes breathe {
-					0%   { opacity: 0.45; }
-					50%  { opacity: 0.75; }
-					100% { opacity: 0.45; }
-				}
+	<!-- backdrop -->
+	<rect x="0" y="0" width="800" height="400" rx="18" fill="url(#bg)"/>
 
-				.stage {
-					position: relative;
-					width: 100%;
-					height: 400px;
-					overflow: hidden;
-					border-radius: 18px;
-					font-family: 'Segoe UI', Roboto, Helvetica, Arial, system-ui, sans-serif;
-					background:
-						radial-gradient(60% 90% at 12% 8%, rgba(255,107,157,0.18) 0%, rgba(255,107,157,0) 60%),
-						radial-gradient(65% 95% at 88% 100%, rgba(106,130,251,0.22) 0%, rgba(106,130,251,0) 62%),
-						radial-gradient(50% 70% at 75% 12%, rgba(34,211,238,0.12) 0%, rgba(34,211,238,0) 60%),
-						radial-gradient(130% 130% at 20% 0%, #171430 0%, #0c0a1e 55%, #060510 100%);
-				}
+	<!-- soft static glows -->
+	<g filter="url(#soft)">
+		<ellipse cx="70" cy="60" rx="180" ry="150" fill="url(#pink)"/>
+		<ellipse cx="720" cy="360" rx="220" ry="180" fill="url(#blue)"/>
+		<ellipse cx="640" cy="70" rx="150" ry="120" fill="url(#cyan)"/>
+		<ellipse cx="400" cy="200" rx="200" ry="120" fill="url(#violet)"/>
+	</g>
 
-				/* soft accent glow behind the card — the single animated element */
-				.glow {
-					position: absolute;
-					top: 50%; left: 50%;
-					width: 560px; height: 280px;
-					transform: translate(-50%, -50%);
-					background: radial-gradient(circle, rgba(139,92,246,0.30) 0%, rgba(139,92,246,0) 68%);
-					filter: blur(28px);
-					animation: breathe 9s ease-in-out infinite;
-				}
+	<!-- glass panel -->
+	<rect x="90" y="103" width="620" height="194" rx="24" fill="#ffffff" fill-opacity="0.06"/>
+	<rect x="90.5" y="103.5" width="619" height="193" rx="23.5" fill="none" stroke="#ffffff" stroke-opacity="0.16"/>
+	<rect x="106" y="104" width="588" height="1" rx="0.5" fill="#ffffff" fill-opacity="0.22"/>
 
-				.glass {
-					position: absolute;
-					top: 50%; left: 50%;
-					transform: translate(-50%, -50%);
-					width: 580px;
-					padding: 50px 44px;
-					border-radius: 26px;
-					background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
-					border: 1px solid rgba(255,255,255,0.16);
-					box-shadow:
-						0 24px 60px rgba(0,0,0,0.45),
-						inset 0 1px 0 rgba(255,255,255,0.28);
-					-webkit-backdrop-filter: blur(16px);
-					backdrop-filter: blur(16px);
-					text-align: center;
-				}
+	<!-- eyebrow -->
+	<line x1="252" y1="152" x2="300" y2="152" stroke="url(#rule)" stroke-width="1"/>
+	<line x1="548" y1="152" x2="500" y2="152" stroke="url(#rule)" stroke-width="1"/>
+	<text x="400" y="156" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+		font-size="12" font-weight="600" letter-spacing="5" fill="#e2e8ff" fill-opacity="0.72">SOFTWARE ENGINEER</text>
 
-				.eyebrow {
-					display: inline-flex;
-					align-items: center;
-					gap: 10px;
-					font-size: 12px;
-					font-weight: 600;
-					letter-spacing: 5px;
-					text-transform: uppercase;
-					color: rgba(226, 232, 255, 0.70);
-					margin-bottom: 16px;
-				}
-				.eyebrow::before, .eyebrow::after {
-					content: "";
-					width: 28px; height: 1px;
-					background: linear-gradient(90deg, transparent, #67e8f9);
-				}
-				.eyebrow::after { transform: scaleX(-1); }
+	<!-- title -->
+	<text x="400" y="214" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+		font-size="36" font-weight="800" letter-spacing="0.5" fill="url(#title)">Building Fast, Fluid Interfaces</text>
 
-				h1 {
-					font-size: 44px;
-					font-weight: 800;
-					letter-spacing: 1px;
-					line-height: 1.12;
-					color: #f4f6ff;
-					text-shadow: 0 2px 24px rgba(103, 232, 249, 0.18);
-				}
+	<!-- accent bar -->
+	<rect x="368" y="232" width="64" height="4" rx="2" fill="url(#accent)"/>
 
-				.tags {
-					margin-top: 18px;
-					font-size: 13.5px;
-					font-weight: 500;
-					letter-spacing: 1.5px;
-					color: rgba(226, 232, 255, 0.76);
-				}
-				.dot { color: #67e8f9; margin: 0 9px; }
-			</style>
-			<div class="stage">
-				<div class="glow"></div>
-				<div class="glass">
-					<div class="eyebrow">Software Engineer</div>
-					<h1>Building Fast, Fluid Interfaces</h1>
-					<div class="tags">
-						React <span class="dot">&#8226;</span> React Native <span class="dot">&#8226;</span> TypeScript
-					</div>
-				</div>
-			</div>
-		</div>
-	</foreignObject>
+	<!-- tags -->
+	<text x="400" y="270" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+		font-size="14" font-weight="500" letter-spacing="1.5" fill="#e2e8ff" fill-opacity="0.78">React<tspan fill="#67e8f9" dx="10" dy="0">&#8226;</tspan><tspan fill="#e2e8ff" fill-opacity="0.78" dx="10">React Native</tspan><tspan fill="#67e8f9" dx="10">&#8226;</tspan><tspan fill="#e2e8ff" fill-opacity="0.78" dx="10">TypeScript</tspan></text>
 </svg>
