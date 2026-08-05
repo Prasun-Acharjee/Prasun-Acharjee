@@ -131,12 +131,12 @@ Frontend-leaning software engineer with **5+ years** shipping React and React Na
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Prasun-Acharjee&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="stats">
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Prasun-Acharjee&layout=compact&theme=tokyonight&hide_border=true" alt="top langs">
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Prasun-Acharjee&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&cache_seconds=1800" alt="stats">
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Prasun-Acharjee&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800" alt="top langs">
 </div>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Prasun-Acharjee&theme=tokyonight&hide_border=true" alt="streak">
+  <img src="https://streak-stats.demolab.com?user=Prasun-Acharjee&theme=tokyonight&hide_border=true" alt="streak">
 </div>
 
 ---
