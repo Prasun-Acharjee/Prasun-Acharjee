@@ -2,77 +2,128 @@
 	<foreignObject width="100%" height="100%">
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<style>
-        @keyframes rotate {
-					0% {
-						transform: rotate(3deg);
-					}
-					100% {
-						transform: rotate(-3deg);
-					}
+				* { margin: 0; padding: 0; box-sizing: border-box; }
+
+				@keyframes blobA {
+					0%   { transform: translate(0px, 0px) scale(1); }
+					33%  { transform: translate(120px, 60px) scale(1.15); }
+					66%  { transform: translate(60px, 140px) scale(0.9); }
+					100% { transform: translate(0px, 0px) scale(1); }
 				}
-				@keyframes gradientBackground {
-					0% {
-						background-position: 0% 50%;
-					}
-					50% {
-						background-position: 100% 50%;
-					}
-					100% {
-						background-position: 0% 50%;
-					}
+				@keyframes blobB {
+					0%   { transform: translate(0px, 0px) scale(1); }
+					33%  { transform: translate(-100px, 80px) scale(0.85); }
+					66%  { transform: translate(-140px, -40px) scale(1.2); }
+					100% { transform: translate(0px, 0px) scale(1); }
 				}
-				@keyframes fadeIn {
-					0% {
-						opacity: 0;
-					}
-					66% {
-						opacity: 0;
-					}
-					100% {
-						opacity: 1;
-					}
+				@keyframes blobC {
+					0%   { transform: translate(0px, 0px) scale(1); }
+					50%  { transform: translate(90px, -90px) scale(1.1); }
+					100% { transform: translate(0px, 0px) scale(1); }
 				}
-				.container {
-					font-family:
-						system-ui,
-						-apple-system,
-						'Segoe UI',
-						Roboto,
-						Helvetica,
-						Arial,
-						sans-serif,
-						'Apple Color Emoji',
-						'Segoe UI Emoji';
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					justify-content: center;
-					margin: 0;
+				@keyframes float {
+					0%   { transform: translateY(0px); }
+					50%  { transform: translateY(-10px); }
+					100% { transform: translateY(0px); }
+				}
+				@keyframes shine {
+					0%   { transform: translateX(-160%) skewX(-20deg); }
+					100% { transform: translateX(260%) skewX(-20deg); }
+				}
+				@keyframes fadeUp {
+					0%   { opacity: 0; transform: translateY(14px); }
+					100% { opacity: 1; transform: translateY(0px); }
+				}
+
+				.stage {
+					position: relative;
 					width: 100%;
 					height: 400px;
-					background: linear-gradient(-45deg, #fc5c7d, #6a82fb, #05dfd7);
-					background-size: 600% 400%;
-					animation: gradientBackground 10s ease infinite;
-					border-radius: 10px;
-					color: white;
+					overflow: hidden;
+					border-radius: 18px;
+					background: radial-gradient(120% 120% at 20% 10%, #1b1035 0%, #0d0b1f 55%, #060512 100%);
+					font-family: 'Segoe UI', Roboto, Helvetica, Arial, system-ui, sans-serif;
+				}
+
+				.blob {
+					position: absolute;
+					border-radius: 50%;
+					filter: blur(60px);
+					opacity: 0.85;
+				}
+				.blob.a { width: 300px; height: 300px; top: -40px; left: -20px;
+					background: #fc5c7d; animation: blobA 14s ease-in-out infinite; }
+				.blob.b { width: 340px; height: 340px; bottom: -80px; right: -20px;
+					background: #6a82fb; animation: blobB 16s ease-in-out infinite; }
+				.blob.c { width: 260px; height: 260px; top: 40px; right: 120px;
+					background: #05dfd7; animation: blobC 12s ease-in-out infinite; }
+
+				.glass {
+					position: absolute;
+					top: 50%; left: 50%;
+					transform: translate(-50%, -50%);
+					width: 560px;
+					padding: 46px 40px;
+					border-radius: 24px;
+					background: rgba(255, 255, 255, 0.08);
+					border: 1px solid rgba(255, 255, 255, 0.22);
+					box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35),
+						inset 0 1px 0 rgba(255, 255, 255, 0.35);
+					-webkit-backdrop-filter: blur(14px);
+					backdrop-filter: blur(14px);
+					overflow: hidden;
 					text-align: center;
+					animation: float 6s ease-in-out infinite;
+				}
+				.glass::before {
+					content: "";
+					position: absolute;
+					top: 0; left: 0;
+					width: 60px; height: 100%;
+					background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+					animation: shine 5s ease-in-out infinite;
+				}
+
+				.eyebrow {
+					font-size: 13px;
+					letter-spacing: 6px;
+					text-transform: uppercase;
+					color: rgba(255, 255, 255, 0.7);
+					margin-bottom: 12px;
+					animation: fadeUp 1s ease both;
 				}
 				h1 {
-					font-size: 50px;
-					line-height: 1.3;
-					letter-spacing: 5px;
-					text-transform: uppercase;
-					text-shadow:
-						0 1px 0 #efefef,
-						0 2px 0 #efefef,
-						0 3px 0 #efefef,
-						0 4px 0 #efefef,
-						0 12px 5px rgba(0, 0, 0, 0.1);
-					animation: rotate ease-in-out 1s infinite alternate;
+					font-size: 46px;
+					font-weight: 800;
+					letter-spacing: 2px;
+					line-height: 1.1;
+					background: linear-gradient(90deg, #ffffff, #c9d3ff, #8fe9ff);
+					-webkit-background-clip: text;
+					background-clip: text;
+					-webkit-text-fill-color: transparent;
+					color: #ffffff;
+					animation: fadeUp 1s ease 0.15s both;
 				}
+				.tags {
+					margin-top: 16px;
+					font-size: 14px;
+					letter-spacing: 2px;
+					color: rgba(255, 255, 255, 0.78);
+					animation: fadeUp 1s ease 0.3s both;
+				}
+				.dot { color: #05dfd7; margin: 0 8px; }
 			</style>
-			<div class="container">
-				<h1>Software Engineer</h1>
+			<div class="stage">
+				<div class="blob a"></div>
+				<div class="blob b"></div>
+				<div class="blob c"></div>
+				<div class="glass">
+					<div class="eyebrow">Software Engineer</div>
+					<h1>Building Fast, Fluid Interfaces</h1>
+					<div class="tags">
+						React <span class="dot">&#8226;</span> React Native <span class="dot">&#8226;</span> TypeScript
+					</div>
+				</div>
 			</div>
 		</div>
 	</foreignObject>
