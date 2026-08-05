@@ -123,9 +123,8 @@ Frontend-leaning software engineer with **5+ years** shipping React and React Na
 
 | Project | What it does | Built with |
 | :--- | :--- | :--- |
-| **Sellmygear** | Scalable OLX-style marketplace — auth, notifications & a recommendation engine, 1000+ listings | `Next.js` `Zustand` `TypeScript` |
-| **BustersDB** | Real-time stats site for Supercell's Squad Busters — 5k+ visitors in month one | `React` `TypeScript` `Styled Components` |
-| **DSA Visualizer** | Interactive visualizations for algorithms, graphs & charts | `React` `Redux` `d3` `p5` |
+| **[Waayou Mobile](https://github.com/Prasun-Acharjee/waayou-mobile)** | Cross-platform mobile app for the Waayou chat platform — real-time messaging with a native feel on iOS & Android | `React Native` `Expo` `TypeScript` |
+| **[Prowl](https://github.com/Prasun-Acharjee/prowl)** | A TypeScript product spanning an app, a companion dashboard, and its web presence | `TypeScript` `React` |
 
 ---
 
