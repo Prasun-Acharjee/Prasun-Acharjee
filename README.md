@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="header.svg" width="800" alt="Software Engineer">
+  <img src="header.webp" width="800" alt="Software Engineer">
 </div>
 
 <h1 align="center">
