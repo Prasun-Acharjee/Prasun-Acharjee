@@ -121,10 +121,32 @@ Frontend-leaning software engineer with **5+ years** shipping React and React Na
 
 ## 🚀 Featured Projects
 
-| Project | What it does | Built with |
-| :--- | :--- | :--- |
-| **[Waayou Mobile](https://github.com/Prasun-Acharjee/waayou-mobile)** | Cross-platform mobile app for the Waayou chat platform — real-time messaging with a native feel on iOS & Android | `React Native` `Expo` `TypeScript` |
-| **[Prowl](https://github.com/Prasun-Acharjee/prowl)** | A TypeScript product spanning an app, a companion dashboard, and its web presence | `TypeScript` `React` |
+### 🐾 [Prowl](https://github.com/Prasun-Acharjee/prowl) — _spot a stray, log it, help it get home_
+
+A community app that turns scattered stray-pet sightings into one shared, map-based record. Snap a photo and a **PostGIS** proximity query surfaces pets already logged nearby — so a repeat sighting adds to a pet's timeline instead of creating a duplicate. In the background, a **Cloudflare Worker** generates **CLIP** image embeddings so pets can be matched visually, and shelters can flag animals as adoptable.
+
+<sub>
+  <img src="https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white">
+  <img src="https://img.shields.io/badge/React_Native-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white">
+  <img src="https://img.shields.io/badge/PostGIS_%2B_pgvector-4169E1?style=flat-square&logo=postgresql&logoColor=white">
+  <img src="https://img.shields.io/badge/Cloudflare_Workers_AI-F38020?style=flat-square&logo=cloudflare&logoColor=white">
+  <img src="https://img.shields.io/badge/TanStack_Query-FF4154?style=flat-square&logo=reactquery&logoColor=white">
+</sub>
+
+### 💬 [Waayou Mobile](https://github.com/Prasun-Acharjee/waayou-mobile) — _a dark-first chat platform in your pocket_
+
+The cross-platform companion to the Waayou chat platform: global rooms, DMs, friends, buzz, and **1:1 / group voice & video** over **WebRTC** — all in a dark-first *"Night Wind"* design language. Shares the web app's session-token auth (stored in the device keychain) and ports the site's real-time mesh-calling stack to native.
+
+<sub>
+  <img src="https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white">
+  <img src="https://img.shields.io/badge/React_Native-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/WebRTC-333333?style=flat-square&logo=webrtc&logoColor=white">
+  <img src="https://img.shields.io/badge/Expo_Router-000020?style=flat-square&logo=expo&logoColor=white">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white">
+</sub>
 
 ---
 
