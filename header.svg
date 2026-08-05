@@ -4,32 +4,11 @@
 			<style>
 				* { margin: 0; padding: 0; box-sizing: border-box; }
 
-				/* Slow, gentle aurora drift — long durations + alternate = no snap at the loop */
-				@keyframes drift1 {
-					from { transform: translate(-6%, -4%) scale(1); }
-					to   { transform: translate(6%, 5%) scale(1.12); }
-				}
-				@keyframes drift2 {
-					from { transform: translate(5%, 4%) scale(1.05); }
-					to   { transform: translate(-5%, -6%) scale(0.95); }
-				}
-				@keyframes drift3 {
-					from { transform: translate(-4%, 6%) scale(1); }
-					to   { transform: translate(6%, -4%) scale(1.1); }
-				}
-				/* Smooth vertical float for the glass card */
-				@keyframes float {
-					from { transform: translateY(-6px); }
-					to   { transform: translateY(6px); }
-				}
-				/* Continuous flowing gradient on the title */
-				@keyframes shimmer {
-					to { background-position: 200% center; }
-				}
-				/* Slow breathing glow behind the card */
+				/* The only motion: a slow, low-amplitude glow breathe. Barely there. */
 				@keyframes breathe {
-					from { opacity: 0.55; transform: scale(1); }
-					to   { opacity: 0.9; transform: scale(1.06); }
+					0%   { opacity: 0.45; }
+					50%  { opacity: 0.75; }
+					100% { opacity: 0.45; }
 				}
 
 				.stage {
@@ -38,40 +17,23 @@
 					height: 400px;
 					overflow: hidden;
 					border-radius: 18px;
-					background: radial-gradient(130% 130% at 15% 0%, #171430 0%, #0c0a1e 55%, #060510 100%);
 					font-family: 'Segoe UI', Roboto, Helvetica, Arial, system-ui, sans-serif;
+					background:
+						radial-gradient(60% 90% at 12% 8%, rgba(255,107,157,0.18) 0%, rgba(255,107,157,0) 60%),
+						radial-gradient(65% 95% at 88% 100%, rgba(106,130,251,0.22) 0%, rgba(106,130,251,0) 62%),
+						radial-gradient(50% 70% at 75% 12%, rgba(34,211,238,0.12) 0%, rgba(34,211,238,0) 60%),
+						radial-gradient(130% 130% at 20% 0%, #171430 0%, #0c0a1e 55%, #060510 100%);
 				}
 
-				.aurora {
-					position: absolute;
-					border-radius: 50%;
-					filter: blur(70px);
-					will-change: transform;
-				}
-				.aurora.one {
-					width: 46%; height: 90%; top: -20%; left: -8%;
-					background: radial-gradient(circle, #ff6b9d 0%, rgba(255,107,157,0) 70%);
-					animation: drift1 22s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-				}
-				.aurora.two {
-					width: 52%; height: 100%; bottom: -25%; right: -10%;
-					background: radial-gradient(circle, #6a82fb 0%, rgba(106,130,251,0) 70%);
-					animation: drift2 26s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-				}
-				.aurora.three {
-					width: 40%; height: 80%; top: 10%; right: 18%;
-					background: radial-gradient(circle, #22d3ee 0%, rgba(34,211,238,0) 70%);
-					animation: drift3 19s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-				}
-
+				/* soft accent glow behind the card — the single animated element */
 				.glow {
 					position: absolute;
 					top: 50%; left: 50%;
-					width: 520px; height: 260px;
+					width: 560px; height: 280px;
 					transform: translate(-50%, -50%);
-					background: radial-gradient(circle, rgba(139,92,246,0.35) 0%, rgba(139,92,246,0) 70%);
-					filter: blur(30px);
-					animation: breathe 6s ease-in-out infinite alternate;
+					background: radial-gradient(circle, rgba(139,92,246,0.30) 0%, rgba(139,92,246,0) 68%);
+					filter: blur(28px);
+					animation: breathe 9s ease-in-out infinite;
 				}
 
 				.glass {
@@ -79,34 +41,33 @@
 					top: 50%; left: 50%;
 					transform: translate(-50%, -50%);
 					width: 580px;
-					padding: 48px 44px;
+					padding: 50px 44px;
 					border-radius: 26px;
-					background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-					border: 1px solid rgba(255,255,255,0.18);
+					background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+					border: 1px solid rgba(255,255,255,0.16);
 					box-shadow:
-						0 20px 50px rgba(0,0,0,0.40),
-						inset 0 1px 0 rgba(255,255,255,0.30);
+						0 24px 60px rgba(0,0,0,0.45),
+						inset 0 1px 0 rgba(255,255,255,0.28);
 					-webkit-backdrop-filter: blur(16px);
 					backdrop-filter: blur(16px);
 					text-align: center;
-					animation: float 7s ease-in-out infinite alternate;
 				}
 
 				.eyebrow {
 					display: inline-flex;
 					align-items: center;
-					gap: 9px;
+					gap: 10px;
 					font-size: 12px;
 					font-weight: 600;
 					letter-spacing: 5px;
 					text-transform: uppercase;
-					color: rgba(226, 232, 255, 0.72);
+					color: rgba(226, 232, 255, 0.70);
 					margin-bottom: 16px;
 				}
 				.eyebrow::before, .eyebrow::after {
 					content: "";
-					width: 26px; height: 1px;
-					background: linear-gradient(90deg, transparent, rgba(226,232,255,0.6));
+					width: 28px; height: 1px;
+					background: linear-gradient(90deg, transparent, #67e8f9);
 				}
 				.eyebrow::after { transform: scaleX(-1); }
 
@@ -115,13 +76,8 @@
 					font-weight: 800;
 					letter-spacing: 1px;
 					line-height: 1.12;
-					background: linear-gradient(90deg, #ffffff 0%, #a5b4fc 25%, #67e8f9 50%, #a5b4fc 75%, #ffffff 100%);
-					background-size: 200% auto;
-					-webkit-background-clip: text;
-					background-clip: text;
-					-webkit-text-fill-color: transparent;
-					color: #ffffff;
-					animation: shimmer 7s linear infinite;
+					color: #f4f6ff;
+					text-shadow: 0 2px 24px rgba(103, 232, 249, 0.18);
 				}
 
 				.tags {
@@ -129,14 +85,11 @@
 					font-size: 13.5px;
 					font-weight: 500;
 					letter-spacing: 1.5px;
-					color: rgba(226, 232, 255, 0.78);
+					color: rgba(226, 232, 255, 0.76);
 				}
-				.dot { color: #22d3ee; margin: 0 9px; }
+				.dot { color: #67e8f9; margin: 0 9px; }
 			</style>
 			<div class="stage">
-				<div class="aurora one"></div>
-				<div class="aurora two"></div>
-				<div class="aurora three"></div>
 				<div class="glow"></div>
 				<div class="glass">
 					<div class="eyebrow">Software Engineer</div>
